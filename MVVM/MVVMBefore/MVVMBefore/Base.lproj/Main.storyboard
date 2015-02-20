@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e57-NA-bNF">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View-->
+        <scene sceneID="ngd-ga-WwL">
+            <objects>
+                <navigationController id="e57-NA-bNF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="View" id="2CR-jS-gJN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqe-9f-Gb2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0uU-Ug-Z6s" kind="relationship" relationship="rootViewController" id="y8v-vX-8BS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFd-Yi-ARI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389" y="-93"/>
+        </scene>
+        <!--Show View Controller-->
+        <scene sceneID="yFc-nX-WQs">
+            <objects>
+                <viewController id="0uU-Ug-Z6s" customClass="ShowViewController" customModule="MVVMBefore" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J6j-Mx-Q5p"/>
+                        <viewControllerLayoutGuide type="bottom" id="UYE-jr-oHS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ruP-cT-v4M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Folder (200 KB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0t-ih-uXj">
+                                <rect key="frame" x="243" y="290" width="115" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnK-WC-dfs">
+                                <rect key="frame" x="222" y="503" width="155" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Change Folder Name">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PIk-wF-det" kind="show" identifier="ChangeFolderNameScene" id="gql-wB-deV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy2-UD-Rd9">
+                                <rect key="frame" x="16" y="72" width="568" height="55"/>
+                                <string key="text">This view shows folder name and size. It uses KVO to update its contents when underlying data changes. You can use button at the bottom to change folder name or simulate size change to see KVO in action.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulate Folder Size Change" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0V-Uf-gZL">
+                                <rect key="frame" x="175" y="550" width="210" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="scu-Qt-y6a">
+                                <rect key="frame" x="393" y="545" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleFolderSizeChangeSimulation:" destination="0uU-Ug-Z6s" eventType="valueChanged" id="QHL-fe-uVv"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yy2-UD-Rd9" firstAttribute="top" secondItem="J6j-Mx-Q5p" secondAttribute="bottom" constant="8" id="2dK-ki-4Ea"/>
+                            <constraint firstItem="C0V-Uf-gZL" firstAttribute="centerY" secondItem="scu-Qt-y6a" secondAttribute="centerY" id="5L4-Jq-JGx"/>
+                            <constraint firstAttribute="centerY" secondItem="g0t-ih-uXj" secondAttribute="centerY" id="79b-6V-pGj"/>
+                            <constraint firstItem="Yy2-UD-Rd9" firstAttribute="trailing" secondItem="ruP-cT-v4M" secondAttribute="trailingMargin" id="9i0-zK-CV4"/>
+                            <constraint firstItem="C0V-Uf-gZL" firstAttribute="top" secondItem="AnK-WC-dfs" secondAttribute="bottom" constant="15" id="Ep6-45-WxI"/>
+                            <constraint firstItem="g0t-ih-uXj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ruP-cT-v4M" secondAttribute="leadingMargin" id="KR1-I2-R1f"/>
+                            <constraint firstAttribute="centerX" secondItem="g0t-ih-uXj" secondAttribute="centerX" id="L4f-rp-agc"/>
+                            <constraint firstItem="g0t-ih-uXj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yy2-UD-Rd9" secondAttribute="bottom" constant="10" id="LlU-3w-5SW"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="scu-Qt-y6a" secondAttribute="trailing" id="QgT-Am-dCi"/>
+                            <constraint firstItem="Yy2-UD-Rd9" firstAttribute="leading" secondItem="ruP-cT-v4M" secondAttribute="leadingMargin" id="RBm-v9-YOx"/>
+                            <constraint firstAttribute="centerX" secondItem="AnK-WC-dfs" secondAttribute="centerX" id="TKn-7Q-7Fi"/>
+                            <constraint firstItem="scu-Qt-y6a" firstAttribute="leading" secondItem="C0V-Uf-gZL" secondAttribute="trailing" constant="8" id="UbD-dt-tCC"/>
+                            <constraint firstAttribute="centerX" secondItem="C0V-Uf-gZL" secondAttribute="centerX" constant="20" id="aiu-Vg-k6O"/>
+                            <constraint firstItem="C0V-Uf-gZL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ruP-cT-v4M" secondAttribute="leadingMargin" id="bbi-Ue-ME1"/>
+                            <constraint firstAttribute="centerY" secondItem="AnK-WC-dfs" secondAttribute="centerY" id="e8m-Ap-LBB"/>
+                            <constraint firstItem="UYE-jr-oHS" firstAttribute="top" secondItem="C0V-Uf-gZL" secondAttribute="bottom" constant="30" id="rif-bH-mSJ"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="g0t-ih-uXj" secondAttribute="trailing" id="zE5-b0-xPp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="e8m-Ap-LBB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="KOn-I6-Cmy"/>
+                    <connections>
+                        <outlet property="folderInfoLabel" destination="g0t-ih-uXj" id="pkk-OU-Yf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDX-4R-3sW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="-93"/>
+        </scene>
+        <!--Change Folder Name View Controller-->
+        <scene sceneID="7Mf-Dm-nBG">
+            <objects>
+                <viewController id="PIk-wF-det" customClass="ChangeFolderNameViewController" customModule="MVVMBefore" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Xs-dy-CWG"/>
+                        <viewControllerLayoutGuide type="bottom" id="nGv-hz-O6r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ifw-72-iOu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Folder Name" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rQV-z8-d40">
+                                <rect key="frame" x="75" y="285" width="450" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PIk-wF-det" id="qXB-d7-S1i"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HM-0n-Fgp">
+                                <rect key="frame" x="16" y="72" width="568" height="55"/>
+                                <string key="text">This view allows you change folder name. After editing ends, folder data is updated with new value. This should then be reflected in previous view as well as in label at the bottom. Additionally: if size simulation is turned on, label should update accordingly.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name (200 KB)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2W-ca-TLu">
+                                <rect key="frame" x="245" y="556" width="110" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0HM-0n-Fgp" firstAttribute="top" secondItem="8Xs-dy-CWG" secondAttribute="bottom" constant="8" id="5Cb-qU-nC6"/>
+                            <constraint firstItem="N2W-ca-TLu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ifw-72-iOu" secondAttribute="leadingMargin" id="80k-AR-x9u"/>
+                            <constraint firstAttribute="centerX" secondItem="N2W-ca-TLu" secondAttribute="centerX" id="AyA-67-fVj"/>
+                            <constraint firstAttribute="centerX" secondItem="rQV-z8-d40" secondAttribute="centerX" id="HSw-y7-hEP"/>
+                            <constraint firstItem="0HM-0n-Fgp" firstAttribute="trailing" secondItem="Ifw-72-iOu" secondAttribute="trailingMargin" id="Rjc-eS-2KB"/>
+                            <constraint firstItem="nGv-hz-O6r" firstAttribute="top" secondItem="N2W-ca-TLu" secondAttribute="bottom" constant="24" id="Vth-wK-wb6"/>
+                            <constraint firstAttribute="centerY" secondItem="rQV-z8-d40" secondAttribute="centerY" id="Xxs-7s-QTF"/>
+                            <constraint firstItem="rQV-z8-d40" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0HM-0n-Fgp" secondAttribute="bottom" constant="10" id="ahu-QG-Tyh"/>
+                            <constraint firstItem="rQV-z8-d40" firstAttribute="width" secondItem="Ifw-72-iOu" secondAttribute="width" multiplier="3:4" id="d8a-gg-JFh"/>
+                            <constraint firstItem="0HM-0n-Fgp" firstAttribute="leading" secondItem="Ifw-72-iOu" secondAttribute="leadingMargin" id="h5f-7p-iZW"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="N2W-ca-TLu" secondAttribute="trailing" id="wnU-ah-X4Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="N2W-ca-TLu" id="ahI-Y9-H9x"/>
+                        <outlet property="nameTextField" destination="rQV-z8-d40" id="gNf-3o-D2u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOX-0w-hZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787" y="-93"/>
+        </scene>
+    </scenes>
+</document>
